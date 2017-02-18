@@ -618,7 +618,11 @@ body {
   -webkit-filter: none;
   filter: none;
 }
-@media screen and (max-width: 480px) {
+@media only screen and (max-width: 480px) {
+  #header h1,
+  #header .h1 {
+    font-size: 1.2em;
+  }
   #header #title {
     padding-top: 9px;
     padding-bottom: 9px;
