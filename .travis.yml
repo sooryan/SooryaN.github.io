@@ -11,7 +11,7 @@ script:
   - hexo generate # generate static files
 deploy:
   provider: pages
-  cleanup: true
+  skip_cleanup: true
   token: $GH_TOKEN
   keep_history: true
   target_branch: master
