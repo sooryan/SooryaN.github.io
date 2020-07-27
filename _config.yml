@@ -19,7 +19,7 @@ keywords: portfolio, blog
 author: Soorya Narayan
 language: en
 timezone: 'Asia/Singapore'
-image: '/assets/MeColorMinimalNotHigh.png'
+image: '/assets/EatingBunV1_Tr.png'
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: https://www.soorya.dev
@@ -114,8 +114,6 @@ social_links:
   github: http://github.com/sooryan
   linkedin: https://www.linkedin.com/in/soorya-narayan-jm/
   mail: mailto:soorya.narayan.jm@gmail.com
-
-
 
 search:
   path: search.xml
