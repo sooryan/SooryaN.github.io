@@ -38,7 +38,8 @@ archive_dir: archives
 category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
-skip_render:
+skip_render: "resume/**/*"
+
 
 # Writing
 new_post_name: :title.md # File name of new posts
@@ -102,18 +103,31 @@ ignore:
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: cactus
-
+theme_config:
+  colorscheme: dark
 nav:
-  home: /
-  Art: /art/
-  articles: /archives/
-  Resume: /resume
-  search: /search/
+  home: 
+    url: /
+    new_tab: false
+  Art:
+    url: /art/
+    new_tab: false
+  articles:
+    url: /archives/
+    new_tab: false
+  Resume:
+    url: /resume
+    new_tab: true
+  search:
+    url: /search/
+    new_tab: false
 
 social_links:
   github: http://github.com/sooryan
   linkedin: https://www.linkedin.com/in/soorya-narayan-jm/
   mail: mailto:soorya.narayan.jm@gmail.com
+
+
 
 search:
   path: search.xml

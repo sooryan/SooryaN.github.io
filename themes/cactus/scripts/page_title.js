@@ -23,3 +23,7 @@ hexo.extend.helper.register("page_title", function () {
 
   return title;
 });
+
+hexo.extend.helper.register("page_type", function () {
+  return this.page.type;
+});
