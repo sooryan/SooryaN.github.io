@@ -1,6 +1,34 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on soorya.dev</title><link>/posts/</link><description>Recent content in Posts on soorya.dev</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 14 Sep 2016 21:44:36 +0800</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Haskell Summer of Code Testimonial</title><link>/posts/haskell_summer_of_code_testimonial/</link><pubDate>Wed, 14 Sep 2016 21:44:36 +0800</pubDate><guid>/posts/haskell_summer_of_code_testimonial/</guid><description>This blog post marks the end of a pretty awesome summer!
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on soorya.dev</title>
+    <link>/posts/</link>
+    <description>Recent content in Posts on soorya.dev</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 14 Sep 2016 21:44:36 +0800</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Haskell Summer of Code Testimonial</title>
+      <link>/posts/haskell_summer_of_code_testimonial/</link>
+      <pubDate>Wed, 14 Sep 2016 21:44:36 +0800</pubDate>
+      
+      <guid>/posts/haskell_summer_of_code_testimonial/</guid>
+      <description>This blog post marks the end of a pretty awesome summer!
 The Haskell Summer of Code was a great learning experience and a wonderful opportunity to be a part of an open source organization and gain insight into its workings (It’s a lot more work than I thought it would be and kudos to you guys for keeping things running as smoothly as they have been running!)
-A shout out to various people at #haskell for offering their guidance and helping me with my various doubts and my mentors for their guidance and for handing me a free rein.</description></item><item><title>Hackage Improvements: HSoC proposal</title><link>/posts/haskell_summer_of_code_proposal/</link><pubDate>Fri, 20 May 2016 23:19:12 +0800</pubDate><guid>/posts/haskell_summer_of_code_proposal/</guid><description>I participated in the 2016 Haskell Summer of code working on Hackage, the haskell community&amp;rsquo;s repository of software. Here is the accepted proposal.
+A shout out to various people at #haskell for offering their guidance and helping me with my various doubts and my mentors for their guidance and for handing me a free rein.</description>
+    </item>
+    
+    <item>
+      <title>Hackage Improvements: HSoC proposal</title>
+      <link>/posts/haskell_summer_of_code_proposal/</link>
+      <pubDate>Fri, 20 May 2016 23:19:12 +0800</pubDate>
+      
+      <guid>/posts/haskell_summer_of_code_proposal/</guid>
+      <description>I participated in the 2016 Haskell Summer of code working on Hackage, the haskell community&amp;rsquo;s repository of software. Here is the accepted proposal.
 What is the goal of your project? Hackage 2.0 offers a lot of features but some of them aren’t fleshed out fully or could use some additions Issuimprove usability and functionality. This project aims at addressing a few of them.
-Issue Tracker:
-for filing bugs in Hackage web interface and other hackage related issues with a hook to notify the developers To handle package requests: There are two types of requests that can be filed Bounds Request: Request to change package metadata – i.</description></item></channel></rss>
+  Issue Tracker:
+ for filing bugs in Hackage web interface and other hackage related issues with a hook to notify the developers To handle package requests: There are two types of requests that can be filed  Bounds Request: Request to change package metadata – i.</description>
+    </item>
+    
+  </channel>
+</rss>
