@@ -1,0 +1,175 @@
+<!doctype html><html lang=en>
+<head>
+<title>Haskell Summer of Code Testimonial :: soorya.dev</title>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content="Overview of my HSoC project.">
+<meta name=keywords content=",">
+<meta name=robots content="noodp">
+<link rel=canonical href=/posts/haskell_summer_of_code_testimonial/>
+<link rel=stylesheet href=/assets/style.css>
+<link rel=stylesheet href=/assets/blue.css>
+<link rel=apple-touch-icon href=/img/apple-touch-icon-192x192.png>
+<link rel="shortcut icon" href=/img/favicon/blue.png>
+<meta name=twitter:card content="summary">
+<meta name=twitter:site content>
+<meta name=twitter:creator content>
+<meta property="og:locale" content="en">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Haskell Summer of Code Testimonial">
+<meta property="og:description" content="Overview of my HSoC project.">
+<meta property="og:url" content="/posts/haskell_summer_of_code_testimonial/">
+<meta property="og:site_name" content="soorya.dev">
+<meta property="og:image" content="/">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+<meta property="article:published_time" content="2016-09-14 21:44:36 +0800 +08">
+</head>
+<body class=blue>
+<div class="container center headings--one-size"><!doctype html>
+<html>
+<head>
+<title></title>
+</head>
+<body>
+<header class=header>
+<div class=header__inner>
+<div class=header__logo>
+<a href=/>
+<div class=logo>
+soorya.dev
+</div>
+</a>
+</div>
+<div class=menu-trigger>
+menu
+</div>
+</div> <nav class=menu>
+<ul class="menu__inner menu__inner--desktop">
+<li><a href=/>Home</a></li>
+<li><a href=/art/>Art</a></li>
+<li><a href=/posts/>Posts</a></li>
+<li><a href=https://drive.google.com/file/d/1BceOTvPkAJkJyFEktdUHpCmDz6SPX1bR/preview>Resume</a></li>
+</ul>
+<ul class="menu__inner menu__inner--mobile">
+<li><a href=/>Home</a></li>
+<li><a href=/art/>Art</a></li>
+<li><a href=/posts/>Posts</a></li>
+<li><a href=https://drive.google.com/file/d/1BceOTvPkAJkJyFEktdUHpCmDz6SPX1bR/preview>Resume</a></li>
+</ul>
+</nav>
+</header>
+</body>
+</html>
+<div class=content>
+<div class=post>
+<h1 class=post-title>
+<a href=/posts/haskell_summer_of_code_testimonial/>Haskell Summer of Code Testimonial</a></h1>
+<div class=post-meta>
+<span class=post-date>
+2016-09-14
+</span>
+<span class=post-author>:: Soorya Narayan</span>
+</div>
+<span class=post-tags>
+#<a href=/tags/haskell/>haskell</a>&nbsp;
+#<a href=/tags/open_source/>open_source</a>&nbsp;
+#<a href=/tags/hsoc/>hsoc</a>&nbsp;
+</span>
+<div class=post-content><div>
+<p>This blog post marks the end of a pretty awesome summer!</p>
+<p>The Haskell Summer of Code was a great learning experience and a wonderful opportunity to be a part of an open source organization and gain insight into its workings (It’s a lot more work than I thought it would be and kudos to you guys for keeping things running as smoothly as they have been running!)</p>
+<p>A shout out to various people at #haskell for offering their guidance and helping me with my various doubts and my mentors for their guidance and for handing me a free rein.</p>
+<p>You guys make haskell a lot more accessible to everyone :-)</p>
+<h2 id=a-quick-overview-a-quick-overviewa-quick-overview><a href=#A-quick-overview title="A quick overview"></a>A quick overview<a href=#a-quick-overview-a-quick-overviewa-quick-overview class=hanchor arialabel=Anchor>&#8983;</a> </h2>
+<p>I got the opportunity to contribute to <a href=http://hackage.haskell.org/>Hackage</a>, the Haskell community’s central
+package archive of open source software.</p>
+<p>It was the first time I got to work on an existing codebase of this scale (along with it being my first large Haskell project).</p>
+<p>While I didn’t get to do everything I’d laid out in my <a href=/2016/05/20/Hackage-Improvements/>proposal</a> (which in hindsight
+seems a tad grandiose), I feel I’ve got the more important parts done.</p>
+<p>The consolidated PR is <a href=https://github.com/haskell/hackage-server/pull/514>here</a> and is
+pending a review as I type this.</p>
+<h2 id=summary-summarysummary><a href=#Summary title=Summary></a>Summary<a href=#summary-summarysummary class=hanchor arialabel=Anchor>&#8983;</a> </h2>
+<p>What’s been done:</p>
+<ol>
+<li>
+<p><strong>Tags</strong></p>
+<p>Previously, the tags didn’t get much love. They reflected the category in the <code>.cabal</code> file and whether or not it was a library/
+executable.</p>
+<p>Now, any user can propose additional tags to packages from the package page after which the package maintainers/trustees can accept
+or discard them using a clickable UI. The proposed tags can be seen at <code>/package/:pkgname/tags</code></p>
+<p>This also brought about the need for tag aliasing wherein a trustee can merge tags together.</p>
+</li>
+<li>
+<p><strong>Browsable Package Index View</strong></p>
+<p>There is now a new route at <code>/packages/browse</code> with browsable of all the packages uploaded to Hackage.</p>
+<p><img src=/img/hsoc/search_index.png alt="Screenshot of main search interface"></p>
+<p>A similar interface is present for filtering in the tag and category pages.</p>
+<p>If tagging picks up, it’ll become a lot easier to search for packages.</p>
+</li>
+<li>
+<p><strong>Reverse Dependencies</strong></p>
+<p>Reverse dependencies used to be a Hackage feature until it was discontinued for being a memory hog.</p>
+<p>It’s been rewritten as a <code>PackageId -> PackageId</code> mapping and looks to be performing reasonably as far as memory consumption is
+concerned.</p>
+<p>The main package page lists out the number of direct and indirect dependencies with more details available at <code>/package/:package/reverse</code> while the overall picture is available at <code>/packages/reverse</code>.</p>
+<p>In addition, after wasting far too much time trying to get d3.js to scale to about 10000 nodes, a WebGL visualisation of packages and
+their dependencies is available at <code>/packages/graph</code>.</p>
+<p><img src=/img/hsoc/package_graph.png alt="A visualization of the package database"></p>
+</li>
+<li>
+<p><strong>Voting</strong></p>
+<p>The voting was a low hanging fruit that needed to be addressed. Some tweaks were made to the voting algorithm along with a shiny new UI
+to accompany it (You can rate a package out of 3 lambdas!).</p>
+<p><img src=/img/hsoc/hackage_rating.png alt="A screenshot of the new voting interface"></p>
+</li>
+<li>
+<p><strong>Some Minor Tweaks</strong></p>
+<p>In addition, there were a few minor changes that were made along the way.</p>
+<p>A lot of the HTML code was restructured into separate templates as opposed to a single large file. The <code>Html.hs</code> file is still terribly large and could do with further breakup.
+Some changes were also made to the package page such as displaying executables and suggesting related packages among other things.</p>
+</li>
+</ol>
+<h2 id=future-work-future-workfuture-work><a href=#Future-work title="Future work"></a>Future work<a href=#future-work-future-workfuture-work class=hanchor arialabel=Anchor>&#8983;</a> </h2>
+<p>There’s still quite a bit that can be done with regards to the areas worked on and I’d love to continue to work on the features and see them to completion.</p>
+<ul>
+<li>
+<p>The graph of packages and their dependencies is still rather basic.
+More interactivity and additional views can add to its utility.</p>
+</li>
+<li>
+<p>Reinstating the reverse dependencies feature allows for some fairly complex questions to be answered like finding similar packages using
+dependencies, analysing build reports to make diagnoses, suggesting tags.<br>
+It can also be used to calculate page-rank or analyse where dependencies are being dropped over time leading to a better popularity metric.</p>
+</li>
+</ul>
+</div></div>
+<div class=pagination>
+<div class=pagination__title>
+<span class=pagination__title-h>Read other posts</span>
+<hr>
+</div>
+<div class=pagination__buttons>
+<span class="button next">
+<a href=/posts/haskell_summer_of_code_proposal/>
+<span class=button__text>Hackage Improvements: HSoC proposal</span>
+<span class=button__icon>→</span>
+</a>
+</span>
+</div>
+</div>
+</div>
+</div>
+<footer class=footer>
+<div class=footer__inner>
+<div class=copyright>
+<span>© 2021 Powered by <a href=http://gohugo.io>Hugo</a></span>
+<span>:: Theme made by <a href=https://twitter.com/panr>panr</a></span>
+</div>
+</div>
+</footer>
+<script src=/assets/main.js></script>
+<script src=/assets/prism.js></script>
+</div>
+</body>
+</html>

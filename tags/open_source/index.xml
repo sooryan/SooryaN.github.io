@@ -1,34 +1,203 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>open_source on soorya.dev</title>
-    <link>/tags/open_source/</link>
-    <description>Recent content in open_source on soorya.dev</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Wed, 14 Sep 2016 21:44:36 +0800</lastBuildDate><atom:link href="/tags/open_source/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Haskell Summer of Code Testimonial</title>
-      <link>/posts/haskell_summer_of_code_testimonial/</link>
-      <pubDate>Wed, 14 Sep 2016 21:44:36 +0800</pubDate>
-      
-      <guid>/posts/haskell_summer_of_code_testimonial/</guid>
-      <description>This blog post marks the end of a pretty awesome summer!
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>open_source on soorya.dev</title><link>/tags/open_source/</link><description>Recent content in open_source on soorya.dev</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 14 Sep 2016 21:44:36 +0800</lastBuildDate><atom:link href="/tags/open_source/index.xml" rel="self" type="application/rss+xml"/><item><title>Haskell Summer of Code Testimonial</title><link>/posts/haskell_summer_of_code_testimonial/</link><pubDate>Wed, 14 Sep 2016 21:44:36 +0800</pubDate><guid>/posts/haskell_summer_of_code_testimonial/</guid><description>This blog post marks the end of a pretty awesome summer!
 The Haskell Summer of Code was a great learning experience and a wonderful opportunity to be a part of an open source organization and gain insight into its workings (It’s a lot more work than I thought it would be and kudos to you guys for keeping things running as smoothly as they have been running!)
-A shout out to various people at #haskell for offering their guidance and helping me with my various doubts and my mentors for their guidance and for handing me a free rein.</description>
-    </item>
-    
-    <item>
-      <title>Hackage Improvements: HSoC proposal</title>
-      <link>/posts/haskell_summer_of_code_proposal/</link>
-      <pubDate>Fri, 20 May 2016 23:19:12 +0800</pubDate>
-      
-      <guid>/posts/haskell_summer_of_code_proposal/</guid>
-      <description>I participated in the 2016 Haskell Summer of code working on Hackage, the haskell community&amp;rsquo;s repository of software. Here is the accepted proposal.
+A shout out to various people at #haskell for offering their guidance and helping me with my various doubts and my mentors for their guidance and for handing me a free rein.</description><content>&lt;p>This blog post marks the end of a pretty awesome summer!&lt;/p>
+&lt;p>The Haskell Summer of Code was a great learning experience and a wonderful opportunity to be a part of an open source organization and gain insight into its workings (It’s a lot more work than I thought it would be and kudos to you guys for keeping things running as smoothly as they have been running!)&lt;/p>
+&lt;p>A shout out to various people at #haskell for offering their guidance and helping me with my various doubts and my mentors for their guidance and for handing me a free rein.&lt;/p>
+&lt;p>You guys make haskell a lot more accessible to everyone :-)&lt;/p>
+&lt;h2 id="a-quick-overview-a-quick-overviewa-quick-overview">&lt;a href="#A-quick-overview" title="A quick overview">&lt;/a>A quick overview&lt;/h2>
+&lt;p>I got the opportunity to contribute to &lt;a href="http://hackage.haskell.org/">Hackage&lt;/a>, the Haskell community’s central
+package archive of open source software.&lt;/p>
+&lt;p>It was the first time I got to work on an existing codebase of this scale (along with it being my first large Haskell project).&lt;/p>
+&lt;p>While I didn’t get to do everything I’d laid out in my &lt;a href="/2016/05/20/Hackage-Improvements/">proposal&lt;/a> (which in hindsight
+seems a tad grandiose), I feel I’ve got the more important parts done.&lt;/p>
+&lt;p>The consolidated PR is &lt;a href="https://github.com/haskell/hackage-server/pull/514">here&lt;/a> and is
+pending a review as I type this.&lt;/p>
+&lt;h2 id="summary-summarysummary">&lt;a href="#Summary" title="Summary">&lt;/a>Summary&lt;/h2>
+&lt;p>What’s been done:&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>Tags&lt;/strong>&lt;/p>
+&lt;p>Previously, the tags didn’t get much love. They reflected the category in the &lt;code>.cabal&lt;/code> file and whether or not it was a library/
+executable.&lt;/p>
+&lt;p>Now, any user can propose additional tags to packages from the package page after which the package maintainers/trustees can accept
+or discard them using a clickable UI. The proposed tags can be seen at &lt;code>/package/:pkgname/tags&lt;/code>&lt;/p>
+&lt;p>This also brought about the need for tag aliasing wherein a trustee can merge tags together.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Browsable Package Index View&lt;/strong>&lt;/p>
+&lt;p>There is now a new route at &lt;code>/packages/browse&lt;/code> with browsable of all the packages uploaded to Hackage.&lt;/p>
+&lt;p>&lt;img src="/img/hsoc/search_index.png" alt="Screenshot of main search interface">&lt;/p>
+&lt;p>A similar interface is present for filtering in the tag and category pages.&lt;/p>
+&lt;p>If tagging picks up, it’ll become a lot easier to search for packages.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Reverse Dependencies&lt;/strong>&lt;/p>
+&lt;p>Reverse dependencies used to be a Hackage feature until it was discontinued for being a memory hog.&lt;/p>
+&lt;p>It’s been rewritten as a &lt;code>PackageId -&amp;gt; PackageId&lt;/code> mapping and looks to be performing reasonably as far as memory consumption is
+concerned.&lt;/p>
+&lt;p>The main package page lists out the number of direct and indirect dependencies with more details available at &lt;code>/package/:package/reverse&lt;/code> while the overall picture is available at &lt;code>/packages/reverse&lt;/code>.&lt;/p>
+&lt;p>In addition, after wasting far too much time trying to get d3.js to scale to about 10000 nodes, a WebGL visualisation of packages and
+their dependencies is available at &lt;code>/packages/graph&lt;/code>.&lt;/p>
+&lt;p>&lt;img src="/img/hsoc/package_graph.png" alt="A visualization of the package database">&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Voting&lt;/strong>&lt;/p>
+&lt;p>The voting was a low hanging fruit that needed to be addressed. Some tweaks were made to the voting algorithm along with a shiny new UI
+to accompany it (You can rate a package out of 3 lambdas!).&lt;/p>
+&lt;p>&lt;img src="/img/hsoc/hackage_rating.png" alt="A screenshot of the new voting interface">&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Some Minor Tweaks&lt;/strong>&lt;/p>
+&lt;p>In addition, there were a few minor changes that were made along the way.&lt;/p>
+&lt;p>A lot of the HTML code was restructured into separate templates as opposed to a single large file. The &lt;code>Html.hs&lt;/code> file is still terribly large and could do with further breakup.
+Some changes were also made to the package page such as displaying executables and suggesting related packages among other things.&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="future-work-future-workfuture-work">&lt;a href="#Future-work" title="Future work">&lt;/a>Future work&lt;/h2>
+&lt;p>There’s still quite a bit that can be done with regards to the areas worked on and I’d love to continue to work on the features and see them to completion.&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>The graph of packages and their dependencies is still rather basic.
+More interactivity and additional views can add to its utility.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Reinstating the reverse dependencies feature allows for some fairly complex questions to be answered like finding similar packages using
+dependencies, analysing build reports to make diagnoses, suggesting tags.&lt;br>
+It can also be used to calculate page-rank or analyse where dependencies are being dropped over time leading to a better popularity metric.&lt;/p>
+&lt;/li>
+&lt;/ul></content></item><item><title>Hackage Improvements: HSoC proposal</title><link>/posts/haskell_summer_of_code_proposal/</link><pubDate>Fri, 20 May 2016 23:19:12 +0800</pubDate><guid>/posts/haskell_summer_of_code_proposal/</guid><description>I participated in the 2016 Haskell Summer of code working on Hackage, the haskell community&amp;rsquo;s repository of software. Here is the accepted proposal.
 What is the goal of your project? Hackage 2.0 offers a lot of features but some of them aren’t fleshed out fully or could use some additions Issuimprove usability and functionality. This project aims at addressing a few of them.
-  Issue Tracker:
- for filing bugs in Hackage web interface and other hackage related issues with a hook to notify the developers To handle package requests: There are two types of requests that can be filed  Bounds Request: Request to change package metadata – i.</description>
-    </item>
-    
-  </channel>
-</rss>
+Issue Tracker:
+for filing bugs in Hackage web interface and other hackage related issues with a hook to notify the developers To handle package requests: There are two types of requests that can be filed Bounds Request: Request to change package metadata – i.</description><content>&lt;p>I participated in the 2016 Haskell Summer of code working on Hackage, the haskell community&amp;rsquo;s repository of software. Here is the accepted proposal.&lt;/p>
+&lt;h2 id="what-is-the-goal-of-your-project-what-is-the-goal-of-your-projectwhat-is-the-goal-of-your-project">&lt;a href="#What-is-the-goal-of-your-project" title="What is the goal of your project?">&lt;/a>What is the goal of your project?&lt;/h2>
+&lt;p>Hackage 2.0 offers a lot of features but some of them aren’t fleshed out fully or could use some additions Issuimprove usability and functionality. This project aims at addressing a few of them.&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Issue Tracker:&lt;/p>
+&lt;ul>
+&lt;li>for filing bugs in Hackage web interface and other hackage related issues with a hook to notify the developers&lt;/li>
+&lt;li>To handle package requests: There are two types of requests that can be filed
+&lt;ul>
+&lt;li>Bounds Request: Request to change package metadata – i.e. upper/lower bounds on deps. This can be done with a “revision” by a maintainer or a hackage trustee without a new upload.&lt;/li>
+&lt;li>Orphan Request: Request a package to be disowned, e.g. when the maintainer is inactive and the package has been flagged out-of-date for a long time.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Modifications to the Package Page:&lt;/p>
+&lt;ul>
+&lt;li>Allow for provisions to add wiki/mailing list links for relevant discussions: Very often, at least with older packages, there seems to be very few usage guidelines and examples. Linking to discussions elsewhere can get a new user upto speed&lt;/li>
+&lt;li>Keep track of reverse dependencies (Related Fun Addition: A visualization that maps dependencies and reverse dependencies across all packages (I just love graphs!))&lt;/li>
+&lt;li>A better interface for votes: It’s not very usable right now. Making the UI for voting more obvious and easy to use would help eg a clickable star based system&lt;/li>
+&lt;li>Add a last updated stamp (very few packages have it at present. It’s not easy to identify how recent/relevant the package is)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Tags and Categories:&lt;/p>
+&lt;ul>
+&lt;li>Abandon categories and switch over to tags completely. Categories and Tags seem to more or less serve the same purpose. It makes sense to have multiple tags describe a package as opposed to having it being fit into a rigid category.&lt;/li>
+&lt;li>Social tagging: (This can be an opt-in feature for maintainers) A system to allow for any user to propose new tags with only the maintainers allowed to accept. This will greatly increase package discoverability. Again, hooks would need to be added to notify the maintainers of any new suggestions.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Better searching:&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>Searching at present doesn’t offer very much.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Package Name&lt;/th>
+&lt;th>Author&lt;/th>
+&lt;th>Version&lt;/th>
+&lt;th>Description&lt;/th>
+&lt;th>Tags&lt;/th>
+&lt;th>Last Updated&lt;/th>
+&lt;th>Votes&lt;/th>
+&lt;th>Downloads&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>Using a template like above&lt;/p>
+&lt;ul>
+&lt;li>Extend search to filter based on tags (multiple tags), module names, author names etc&lt;/li>
+&lt;li>Allow for packages to be ordered by downloads, update times, reverse dependencies etc&lt;/li>
+&lt;li>Allow for autocompletion by partial name search&lt;/li>
+&lt;/ul>
+&lt;h2 id="can-you-give-some-more-detailed-design-of-what-precisely-you-intend-to-achieve-can-you-give-some-more-detailed-design-of-what-precisely-you-intend-to-achievecan-you-give-some-more-detailed-design-of-what-precisely-you-intend-to-achieve">&lt;a href="#Can-you-give-some-more-detailed-design-of-what-precisely-you-intend-to-achieve" title="Can you give some more detailed design of what precisely you intend to achieve?">&lt;/a>Can you give some more detailed design of what precisely you intend to achieve?&lt;/h2>
+&lt;h3 id="issue-tracker-issue-trackerissue-tracker">&lt;a href="#Issue-tracker" title="Issue tracker">&lt;/a>Issue tracker&lt;/h3>
+&lt;p>At present, to file any issues, users will have to contact the authors/maintainers (who may no longer be active). By having a public
+tracker for hackage related issues, issues will have a much higher visibility and thus, a higher chance of being resolved.&lt;br>
+As for implementation, a new acid-state instance with a web front end should be straightforward. A sample schema can be like in
+&lt;a href="https://gist.github.com/SooryaN/10e7cdfd5ced92561c919537890d092b#file-bug-yaml">bug.yaml&lt;/a>.&lt;/p>
+&lt;h3 id="reverse-dependencies-reverse-dependenciesreverse-dependencies">&lt;a href="#Reverse-Dependencies" title="Reverse Dependencies">&lt;/a>Reverse Dependencies&lt;/h3>
+&lt;p>Keeping track of reverse dependencies could help usability in a number of ways. For instance, along with efficient tagging, it’ll allow for
+suggesting related packages, for exploring, and also for calculating a PackageRank(tm).&lt;br>
+The implementation is still an open issue though. It could be implemented using an external store or something simple like a csv or a json file. Using acid-state to simply count and list the reverse dependencies without storing the actual branching details is also a possibility.&lt;/p>
+&lt;h3 id="votes-votesvotes">&lt;a href="#Votes" title="Votes">&lt;/a>Votes&lt;/h3>
+&lt;p>This will involve reusing the code behind &lt;a href="http://hackage.haskell.org/packages/votes">http://hackage.haskell.org/packages/votes&lt;/a>
+to accomodate an out of 5 stars rating system. The average rating of a package will be appended to the search/ browse page. The user can click and vote on packages either in the search page itself or in the individual package pages.&lt;/p>
+&lt;h3 id="tags-tagstags">&lt;a href="#Tags" title="Tags">&lt;/a>Tags&lt;/h3>
+&lt;p>At present, the &lt;code>.cabal&lt;/code> file of a package has a category field. The same field can be extended to hold multiple values that can be parsed
+into tags.&lt;br>
+This would ensure that existing packages arent affected in any way. A far as social tagging is concerned, a simple “opt in to tagging?”
+message can be appended to the upload page.&lt;/p>
+&lt;h3 id="search-searchsearch">&lt;a href="#Search" title="Search">&lt;/a>Search&lt;/h3>
+&lt;p>Relevant issues to fix:&lt;/p>
+&lt;ul>
+&lt;li>Substring search (&lt;a href="https://github.com/haskell/hackage-server/issues/208">#208&lt;/a>)&lt;/li>
+&lt;li>Searching and Coalescing Tags (&lt;a href="https://github.com/haskell/hackage-server/issues/27">#27&lt;/a>), (&lt;a href="https://github.com/haskell/hackage-server/issues/24">#24&lt;/a>)&lt;/li>
+&lt;/ul>
+&lt;p>Additions:&lt;br>
+This will involve redesigning the present search page and devising a method to integrate substring search into the present keyword-based
+search in order to implement autocompletion and partial name search. One approach would be to build a prefix tree with the words in the
+corpus as keys and their frequencies as values.&lt;/p>
+&lt;h2 id="do-you-have-a-mentor-in-mind-do-you-have-a-mentor-in-minddo-you-have-a-mentor-in-mind">&lt;a href="#Do-you-have-a-mentor-in-mind" title="Do you have a mentor in mind?">&lt;/a>Do you have a mentor in mind?&lt;/h2>
+&lt;p>I talked to dcoutts, hvr and sclv at #hackage and they said that they’d be ready to mentor/ assign a mentor for the summer.&lt;/p>
+&lt;h2 id="what-deliverables-do-you-think-are-reasonable-targets-what-deliverables-do-you-think-are-reasonable-targetswhat-deliverables-do-you-think-are-reasonable-targets">&lt;a href="#What-deliverables-do-you-think-are-reasonable-targets" title="What deliverables do you think are reasonable targets?">&lt;/a>What deliverables do you think are reasonable targets?&lt;/h2>
+&lt;ul>
+&lt;li>An issue tracker&lt;/li>
+&lt;li>A method to handle reverse dependencies&lt;/li>
+&lt;li>Improvements to tagging&lt;/li>
+&lt;li>An improved search experience&lt;/li>
+&lt;/ul>
+&lt;h2 id="can-you-outline-an-approximate-schedule-of-milestones-can-you-outline-an-approximate-schedule-of-milestonescan-you-outline-an-approximate-schedule-of-milestones">&lt;a href="#Can-you-outline-an-approximate-schedule-of-milestones" title="Can you outline an approximate schedule of milestones?">&lt;/a>Can you outline an approximate schedule of milestones?&lt;/h2>
+&lt;h3 id="before-june-12th-before-june-12thbefore-june-12th">&lt;a href="#Before-June-12th" title="Before June 12th">&lt;/a>Before June 12th&lt;/h3>
+&lt;p>I’ll use this period to get acquainted my the mentor and become familiar with the hackage codebase.&lt;br>
+I’ll also plan out what to do in the later phases, possibly with mockups and blog posts and solicit feedback for these plans. At the end of this period, I should have a roadmap of what to do and how to do it.&lt;/p>
+&lt;h3 id="june-13th-july-13th-june-13th---july-13thjune-13th---july-13th">&lt;a href="#June-13th-July-13th" title="June 13th - July 13th">&lt;/a>June 13th - July 13th&lt;/h3>
+&lt;p>I’ll finish up with the tagging and the issue tracker along with their integration into the package pages.&lt;/p>
+&lt;h3 id="july-13th-august-5th-july-13th---august-5thjuly-13th---august-5th">&lt;a href="#July-13th-August-5th" title="July 13th - August 5th">&lt;/a>July 13th - August 5th&lt;/h3>
+&lt;p>This period would be spent working on and the search algorithm and interface&lt;/p>
+&lt;h3 id="august-5th-august-25th-august-5th---august-25thaugust-5th---august-25th">&lt;a href="#August-5th-August-25th" title="August 5th - August 25th">&lt;/a>August 5th - August 25th&lt;/h3>
+&lt;p>I’ll be working through an efficient way to keep track of reverse dependencies.&lt;/p>
+&lt;h3 id="after-august-25th-after-august-25thafter-august-25th">&lt;a href="#After-August-25th" title="After August 25th">&lt;/a>After August 25th&lt;/h3>
+&lt;p>Any remaining time will be spent fine tuning the work done in the first two months, writing documentation and cleaning up the codebase&lt;/p>
+&lt;h2 id="in-what-ways-will-this-project-benefit-the-wider-haskell-community-in-what-ways-will-this-project-benefit-the-wider-haskell-communityin-what-ways-will-this-project-benefit-the-wider-haskell-community">&lt;a href="#In-what-ways-will-this-project-benefit-the-wider-Haskell-community" title="In what ways will this project benefit the wider Haskell community?">&lt;/a>In what ways will this project benefit the wider Haskell community?&lt;/h2>
+&lt;p>Along with GHC and Cabal, Hackage forms the core of the Haskell ecosystem. Improvements here should help the community as a whole.&lt;/p>
+&lt;h2 id="what-relevant-experience-do-you-have-what-relevant-experience-do-you-havewhat-relevant-experience-do-you-have">&lt;a href="#What-relevant-experience-do-you-have" title="What relevant experience do you have?">&lt;/a>What relevant experience do you have?&lt;/h2>
+&lt;p>I’ve just finised the sophomore year of my bachelors in computer science.&lt;/p>
+&lt;p>I’ve been using and have been a supporter of free software since high school and have been programming for about 4 years. I’ve worked mainly
+in python, javascript and C++ and have built and maintained multiple websites.&lt;br>
+I was introduced to functional programming when I learnt scheme a little over a year ago. I fell in love with the elegance of haskell over the last half year en route to becoming convinced that it a much better paradigm for writing programs in.&lt;br>
+I’ve used haskell in university for my OS course that involved multithreading. I’ve implemented a subset of scheme in Haskell and also
+dabbled around in building parsers for toy languages.&lt;/p>
+&lt;h2 id="in-what-ways-do-you-envisage-interacting-with-the-wider-haskell-community-during-your-project-in-what-ways-do-you-envisage-interacting-with-the-wider-haskell-community-during-your-projectin-what-ways-do-you-envisage-interacting-with-the-wider-haskell-community-during-your-project">&lt;a href="#In-what-ways-do-you-envisage-interacting-with-the-wider-Haskell-community-during-your-project" title="In what ways do you envisage interacting with the wider Haskell community during your project?">&lt;/a>In what ways do you envisage interacting with the wider Haskell community during your project?&lt;/h2>
+&lt;p>The haskell community is in general very helpful and I regularly hang around in #haskell and &lt;a href="http://www.reddit.com/r/haskell">/r/haskell&lt;/a>
+and am part of the Haskell learning Group on slack. Whenever stackoverflow has failed me in the past, I’ve turned to them and am
+confident I’d be able to find help there if my mentor is otherwise occupied.&lt;/p>
+&lt;p>I have a &lt;a href="http://soorya.dev/">blog&lt;/a> set up (with nothing on it yet) and if accepted, I’ll keep track of the developments there and post
+updates to reddit and planet haskell.&lt;/p></content></item></channel></rss>
