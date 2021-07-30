@@ -1,14 +1,15 @@
-language: node_js
-node_js:
-  - 10 # use nodejs v10 LTS
-cache: npm
+install:
+  - curl -LO https://github.com/gohugoio/hugo/releases/download/v0.55.4/hugo_0.55.4_Linux-64bit.deb
+  - sudo dpkg -i hugo_0.55.4_Linux-64bit.deb
+
+script:
+  - hugo
+
 os: linux
 dist: xenial
 branches:
   only:
     - source # build master branch only
-script:
-  - hexo generate # generate static files
 deploy:
   provider: pages
   skip_cleanup: true

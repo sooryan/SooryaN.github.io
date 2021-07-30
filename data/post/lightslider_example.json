@@ -1,0 +1,55 @@
+{
+    "settings": {
+        "item": 2,
+        "thumbItem": 10,
+        "slideMargin": 0,
+        "currentPagerPosition": "left",
+        "slideMove":1,
+        "easing": "cubic-bezier(0.25, 0, 0.25, 1)",
+        "speed": 600,
+        "responsive": [
+            {
+                "breakpoint": 800,
+                "settings": {
+                    "item": 3,
+                    "slideMove": 1,
+                    "slideMargin": 6
+                }
+            },
+            {
+                "breakpoint": 480,
+                "settings": {
+                    "item": 2,
+                    "slideMove": 1
+                }
+            }
+        ]
+    },
+    "items": [
+        {
+            "full": "/img/art/01.jpg",
+            "thumb": "/img/art/thumbs/thumb.01.jpg"
+        },
+        {
+            "full": "/img/art/02.jpg",
+            "thumb": "/img/art/thumbs/thumb.02.jpg"
+        },        
+        {
+            "full": "/img/art/03.jpg",
+            "thumb": "/img/art/thumbs/thumb.03.jpg"
+        },        
+        {
+            "full": "/img/art/04.jpg",
+            "thumb": "/img/art/thumbs/thumb.04.jpg"
+        },        {
+            "full": "/img/art/05.jpg",
+            "thumb": "/img/art/thumbs/thumb.05.jpg"
+        },        {
+            "full": "/img/art/06.jpg",
+            "thumb": "/img/art/thumbs/thumb.06.jpg"
+        },        {
+            "full": "/img/art/07.jpg",
+            "thumb": "/img/art/thumbs/thumb.07.jpg"
+        }
+    ]
+}
